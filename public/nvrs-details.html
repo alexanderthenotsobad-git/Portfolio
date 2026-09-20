@@ -1,16 +1,57 @@
 <!--// /var/www/nvrs/crud/public/nvrs-details.html-->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/assets/img/vrs-favicon.ico"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NVRS Project - Development Journey</title>
+    <title>VRS Project - Development Journey</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link href="/css/styles.css" rel="stylesheet" />
     <style>
+      /* Dark mode */
+
+      /* CTA buttons in sidebar */
+      .vrs-cta-btn {
+        background-color: #ac6b29;
+        color: #fff;
+        font-weight: 600;
+        padding: 0.6rem 1rem;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 8px rgba(172, 107, 41, 0.25);
+      }
+      .vrs-cta-btn:hover {
+        background-color: #8a5520;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(172, 107, 41, 0.4);
+      }
+
+      .sentiment-cta-btn {
+        background-color: #6f7d66; /* olive — secondary to the rust VRS button */
+        color: #fff;
+        font-weight: 600;
+        padding: 0.6rem 1rem;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 8px rgba(111, 125, 102, 0.25);
+      }
+      .sentiment-cta-btn:hover {
+        background-color: #586550;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(111, 125, 102, 0.4);
+      }
       .tech-reference {
         margin: 1.5rem 0;
         padding: 1.25rem;
@@ -18,7 +59,7 @@
         background-color: #f8f9fa;
         border-radius: 0.25rem;
       }
-      
+
       .project-card {
         border: 1px solid #dee2e6;
         border-radius: 0.5rem;
@@ -27,12 +68,12 @@
         transition: all 0.3s ease;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
       }
-      
+
       .project-card:hover {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         transform: translateY(-5px);
       }
-      
+
       .project-new-badge {
         background-color: #198754;
         color: white;
@@ -43,7 +84,7 @@
         margin-left: 0.5rem;
         text-transform: uppercase;
       }
-      
+
       .project-legacy-badge {
         background-color: #6c757d;
         color: white;
@@ -54,7 +95,7 @@
         margin-left: 0.5rem;
         text-transform: uppercase;
       }
-      
+
       .tech-stack-list {
         list-style: none;
         padding-left: 0;
@@ -62,7 +103,7 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      
+
       .tech-badge {
         background-color: #e9ecef;
         padding: 0.25rem 0.5rem;
@@ -70,14 +111,14 @@
         font-size: 0.875rem;
         font-weight: 600;
       }
-      
+
       .timeline-container {
         margin: 2rem 0;
         position: relative;
       }
-      
+
       .timeline-container::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 1rem;
         top: 0;
@@ -85,15 +126,15 @@
         width: 2px;
         background-color: #dee2e6;
       }
-      
+
       .timeline-item {
         padding-left: 3rem;
         margin-bottom: 2rem;
         position: relative;
       }
-      
+
       .timeline-item::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0.2rem;
         top: 0.5rem;
@@ -102,7 +143,7 @@
         border-radius: 50%;
         background-color: #0d6efd;
       }
-      
+
       .timeline-date {
         font-weight: bold;
         color: #6c757d;
@@ -136,71 +177,111 @@
           <div class="col-md-8">
             <h2>Project Background</h2>
             <p>
-              The NVRS (Node.js Virtual Restaurant System) project represents my
-              journey through modern web development technologies. Starting with
-              vanilla JavaScript and evolving toward more sophisticated frameworks and serverless 
-              architecture, this project demonstrates the natural progression of web
-              application development in today's cloud-first world.
+              VRS (Virtual Restaurant System) represents my journey through
+              modern web development and business. It began with a capstone
+              business plan from a top-ranked business school, originally as a
+              vanilla JavaScript app. It slowly evolved into an AWS-based
+              venture with sophisticated frameworks and serverless architecture.
+              It would later be integrated with a Nutritional Assistant™ an
+              LLM-powered feature that interprets the patron's nutritional needs
+              or preferences and recommends a meal based on the menu. VRS
+              demonstrates the natural progression of web application
+              development in today's cloud-first, LLM-driven world.
             </p>
-            
+
             <h2>Current Projects</h2>
-            
+
             <div class="project-card">
-              <h3>NVRS TypeScript with Next.js <span class="project-new-badge">New</span></h3>
-              <p>The latest iteration of the Virtual Restaurant Solutions platform leverages TypeScript and Next.js to create a more robust, type-safe, and performance-optimized application.</p>
-              
-              <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3>
+                VRS App — React / TypeScript / Next.js / AI
+                <span class="project-new-badge">Live</span>
+              </h3>
+              <p>
+                The current production VRS App runs on TypeScript and Next.js
+                with an LLM-powered
+                <strong>Nutritional Consultant</strong> built in. The consultant
+                accepts voice input via OpenAI's speech-to-text, then hands off
+                to a DeepSeek-powered response agent that reasons over the full
+                menu — <em>including ingredient-level data</em> — to recommend
+                dishes that match each patron's stated preferences,
+                restrictions, and macro targets.
+              </p>
+
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
                 <h5>Tech Stack:</h5>
-                <a href="https://nvrs-ts-v1.pages.dev/" class="btn btn-primary" target="_blank">Visit Project</a>
+                <a
+                  href="https://ai.alexanderthenotsobad.us/app"
+                  class="btn btn-primary"
+                  target="_blank"
+                >
+                  Launch the VRS App
+                </a>
               </div>
-              
+
               <ul class="tech-stack-list">
+                <li class="tech-badge">React</li>
                 <li class="tech-badge">TypeScript</li>
                 <li class="tech-badge">Next.js</li>
                 <li class="tech-badge">React.js</li>
                 <li class="tech-badge">Node.js</li>
                 <li class="tech-badge">Express.js</li>
                 <li class="tech-badge">MySQL</li>
+                <li class="tech-badge">OpenAI Speech-to-Text</li>
+                <li class="tech-badge">DeepSeek API</li>
               </ul>
-              
+
               <div class="tech-reference mt-3">
-                <h5>Key Improvements:</h5>
+                <h5>Nutritional Consultant — How It Works</h5>
+                <ol>
+                  <li>
+                    <strong>Voice or text input:</strong> the patron describes
+                    what they want — "high protein, no shellfish, under 600
+                    calories."
+                  </li>
+                  <li>
+                    <strong>Speech-to-text:</strong> OpenAI transcribes voice
+                    requests into clean text.
+                  </li>
+                  <li>
+                    <strong>Menu + ingredient lookup:</strong> the agent queries
+                    the menu <em>and</em> its underlying ingredient table, so
+                    recommendations respect allergens, macros, and dietary rules
+                    at the component level — not just the dish description.
+                  </li>
+                  <li>
+                    <strong>Reasoning &amp; recommendation:</strong> DeepSeek
+                    ranks matching dishes and returns a short, natural-language
+                    explanation.
+                  </li>
+                </ol>
+              </div>
+
+              <div class="tech-reference mt-3">
+                <h5>Key Improvements Over the Legacy Build</h5>
                 <ul>
-                  <li>Type-safe development with TypeScript to reduce runtime errors</li>
-                  <li>Server-side rendering capabilities through Next.js</li>
+                  <li>
+                    Type-safe development with TypeScript to reduce runtime
+                    errors
+                  </li>
+                  <li>Server-side rendering and edge deployment via Next.js</li>
                   <li>Improved state management and component architecture</li>
-                  <li>Enhanced performance through static site generation where applicable</li>
-                  <li>Modern UI with responsive design</li>
+                  <li>
+                    Ingredient-level database schema powering dietary filtering
+                  </li>
+                  <li>LLM-driven conversational ordering (voice + text)</li>
                 </ul>
               </div>
             </div>
-            
-            <div class="project-card">
-              <h3>NVRS Original <span class="project-legacy-badge">Legacy</span></h3>
-              <p>The foundation of the Virtual Restaurant Solutions platform, built with a classic Node.js/Express stack and vanilla JavaScript.</p>
-              
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5>Tech Stack:</h5>
-                <a href="https://vrsprototype.com" class="btn btn-secondary" target="_blank">Visit Project</a>
-              </div>
-              
-              <ul class="tech-stack-list">
-                <li class="tech-badge">JavaScript</li>
-                <li class="tech-badge">Node.js</li>
-                <li class="tech-badge">Express.js</li>
-                <li class="tech-badge">MySQL</li>
-                <li class="tech-badge">Apache 2.4</li>
-                <li class="tech-badge">AWS</li>
-              </ul>
-            </div>
 
             <h2>Technical Evolution</h2>
-            
+
             <div class="timeline-container">
               <div class="timeline-item">
                 <div class="timeline-date">2023</div>
                 <h4>Phase 1: Foundation (Vanilla JS)</h4>
-                <p>The original NVRS prototype laid the groundwork with:</p>
+                <p>The original VRS prototype laid the groundwork with:</p>
                 <ul>
                   <li>Express.js server handling route logic</li>
                   <li>MySQL database for data persistence</li>
@@ -209,7 +290,7 @@
                   <li>Deployed on traditional server infrastructure</li>
                 </ul>
               </div>
-              
+
               <div class="timeline-item">
                 <div class="timeline-date">2024</div>
                 <h4>Phase 2: Modern Framework (Next.js with TypeScript)</h4>
@@ -220,20 +301,45 @@
                   <li>Enhanced routing capabilities</li>
                   <li>Improved state management</li>
                   <li>Better code organization and maintainability</li>
-                  <li>Deployment on Cloudflare Pages for improved performance</li>
+                  <li>
+                    Deployment on Cloudflare Pages for improved performance
+                  </li>
+                  <li>
+                    LLM-powered Nutritional Consultant wired into the menu
+                  </li>
                 </ul>
               </div>
-              
+
               <div class="timeline-item">
-                <div class="timeline-date">Future Plans</div>
-                <h4>Phase 3: Serverless Architecture (AWS Lambda)</h4>
-                <p>The roadmap for continuous improvement includes:</p>
+                <div class="timeline-date">2025</div>
+                <h4>Phase 3: Building for Growth with AWS</h4>
+                <p>Hardening the platform for scale and reliability:</p>
                 <ul>
-                  <li>Transitioning to serverless architecture</li>
-                  <li>Implementing C# Lambda functions</li>
-                  <li>API Gateway integration</li>
-                  <li>Cloud-native scaling capabilities</li>
-                  <li>Enhanced security features</li>
+                  <li>Implementing Lambda functions for messaging features</li>
+                  <li>Robust REST API architecture for CRUD actions</li>
+                  <li>Cloudflare CDN for faster frontend response</li>
+                </ul>
+              </div>
+              <div class="timeline-item timeline-item--highlight">
+                <div class="timeline-date">2026</div>
+                <h4>Phase 4: Leveraging LLMs with Purpose</h4>
+                <p>
+                  turning the menu from static text into a living, reasoned
+                  dataset that an LLM can actually work with.
+                </p>
+                <ul class="llm-list">
+                  <li>
+                    <strong>Prepared the database</strong> to support
+                    <strong>ingredient-level and food-preparation data</strong>
+                    so recommendations can respect allergens, macros, and
+                    cooking methods, not just dish names.
+                  </li>
+                  <li>
+                    <strong>Trained DeepSeek</strong>, a widely-used LLM, to
+                    <strong>listen to the patron</strong> and
+                    <strong>recommend menu items</strong> based on their stated
+                    needs, restrictions, and preferences.
+                  </li>
                 </ul>
               </div>
             </div>
@@ -250,17 +356,32 @@
 
             <h3>Development Insights</h3>
             <p>
-              The transition from vanilla JavaScript to TypeScript and Next.js revealed significant advantages:
+              The transition from vanilla JavaScript to TypeScript and Next.js
+              revealed significant advantages:
             </p>
             <ul>
-              <li>Type safety drastically reduced runtime errors and improved developer experience</li>
-              <li>Component-based architecture with React simplified maintenance and feature development</li>
-              <li>Server-side rendering improved initial load performance and SEO capabilities</li>
-              <li>The structured nature of TypeScript enforced better coding practices</li>
+              <li>
+                Type safety drastically reduced runtime errors and improved
+                developer experience
+              </li>
+              <li>
+                Component-based architecture with React simplified maintenance
+                and feature development
+              </li>
+              <li>
+                Server-side rendering improved initial load performance and SEO
+                capabilities
+              </li>
+              <li>
+                The structured nature of TypeScript enforced better coding
+                practices
+              </li>
               <li>Modern tooling streamlined the development workflow</li>
             </ul>
             <p>
-              The upcoming move to AWS Lambda represents our commitment to scalable, maintainable architecture that can grow with demand without significant infrastructure management overhead.
+              The upcoming move to AWS Lambda represents our commitment to
+              scalable, maintainable architecture that can grow with demand
+              without significant infrastructure management overhead.
             </p>
 
             <h3>Coming Soon</h3>
@@ -268,8 +389,13 @@
               <h5>Next Major Release Features:</h5>
               <ul>
                 <li>.NET based security implementation</li>
-                <li>Admin dashboard with image upload capabilities for menu customization</li>
-                <li>Enhanced contextual menu controls for improved navigation</li>
+                <li>
+                  Admin dashboard with image upload capabilities for menu
+                  customization
+                </li>
+                <li>
+                  Enhanced contextual menu controls for improved navigation
+                </li>
               </ul>
             </div>
 
@@ -288,24 +414,25 @@
           <div class="col-md-4">
             <div class="position-sticky" style="top: 2rem">
               <div class="p-4 mb-3 bg-light rounded">
-                <h4>Project Links</h4>
-                <ul class="list-unstyled">
-                  <li class="mb-2">
-                    <strong>New TypeScript Version:</strong>
-                    <br>
-                    <a href="https://nvrs-ts-v1.pages.dev/" target="_blank">https://nvrs-ts-v1.pages.dev/</a>
-                  </li>
-                  <li class="mb-2">
-                    <strong>Original Version:</strong>
-                    <br>
-                    <a href="https://vrsprototype.com" target="_blank">https://vrsprototype.com</a>
-                  </li>
-                  <li>
-                    <strong>GitHub Repository:</strong>
-                    <br>
-                    <a href="https://github.com/AlexanderTheNotSoBad-git" target="_blank">GitHub Profile</a>
-                  </li>
-                </ul>
+                <h4>Try the Apps</h4>
+                <div class="d-grid gap-2">
+                  <a
+                    href="https://ai.alexanderthenotsobad.us/app"
+                    class="btn vrs-cta-btn"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Launch the VRS App →
+                  </a>
+                  <a
+                    href="https://sentiment.alexanderthenotsobad.us"
+                    class="btn sentiment-cta-btn"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Try the AI Sentiment Tool →
+                  </a>
+                </div>
               </div>
 
               <div class="p-4 bg-light rounded mb-3">
@@ -333,12 +460,17 @@
                   </ul>
                 </div>
               </div>
-              
+
               <div class="p-4 bg-light rounded">
                 <h4>Why TypeScript?</h4>
-                <p>TypeScript provides numerous advantages for complex applications:</p>
+                <p>
+                  TypeScript provides numerous advantages for complex
+                  applications:
+                </p>
                 <ul class="small">
-                  <li>Static type checking catches errors during development</li>
+                  <li>
+                    Static type checking catches errors during development
+                  </li>
                   <li>Better IntelliSense and code completion</li>
                   <li>Improved code documentation with types</li>
                   <li>Enhanced refactoring capabilities</li>
