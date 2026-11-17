@@ -1,12 +1,11 @@
 module.exports = {
     apps: [
       {
-        name: "nvrs-app",
-        script: "./index.js", // Replace with your entry file
+        name: "Portfolio",
+        script: "./index.js",
         env: {
-          PORT: 5000, // Set the port to use
+          PORT: 3102,
         },
       },
     ],
   };
-  
