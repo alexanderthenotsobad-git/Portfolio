@@ -1,3 +1,0 @@
-
-/*! Squarespace LESS Compiler  (less.js language v1.3.3)  */
-ul[data-rte-list] li>*:first-child::before{content:" " !important}ul li:before{content:'';display:inline-block;background-image:url(https://static1.squarespace.com/static/5ef4e95fff20564681ea1de5/t/5f247cb2d6f33d72e08df839/1596226738894/Favicon_Rust20.pngBULLETPOINTLINK.PNG);background-repeat:no-repeat;background-size:20px;background-position:center;width:20px;height:20px;position:absolute;margin-left:-25px;margin-right:0px;margin-top:5px;margin-bottom:0px}@media screen and (max-width:640px){h2{font-size:20px}p{font-size:14px}}.header-menu-nav-item a{font-size:13px}

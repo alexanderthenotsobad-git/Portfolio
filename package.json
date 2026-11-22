@@ -1,33 +1,15 @@
 {
-  "name": "nvrs",
+  "name": "alexander-gomez-portfolio",
   "version": "1.0.0",
-  "description": "crud endpoints for VRS REST API",
-  "main": "index.js",
+  "description": "Static portfolio of Alexander Gomez — Senior Software Engineer",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "pm2 start index.js --name 'nvrs'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "npx serve public -l 5000",
+    "dev": "npx serve public -l 5000"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexanderthenotsobad-git/nvrs.git"
-  },
-  "author": "AleanderTheNotSoBad",
+  "author": "Alexander Gomez",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alexanderthenotsobad-git/nvrs/issues"
-  },
-  "homepage": "https://github.com/alexanderthenotsobad-git/nvrs#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "mysql2": "^3.12.0"
-  },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "nodemon": "^3.1.4"
+    "serve": "^14.2.0"
   }
 }
