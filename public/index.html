@@ -401,21 +401,100 @@
                   </a>
                 </h3>
                 <p class="project-copy">
-                  A restaurant ordering platform that started as a business-school
-                  capstone and became a live AI menu consultant. It reads
-                  ingredient-level data, listens to dietary needs, and recommends
-                  dishes that actually fit.
+                  A restaurant ordering platform that began as a business-school
+                  capstone in vanilla JavaScript and grew into a live venture on
+                  TypeScript and Next.js. The LLM-powered <strong>Nutritional
+                  Consultant</strong> takes voice input through OpenAI speech-to-text,
+                  then hands off to a DeepSeek agent that reasons over the menu and
+                  its ingredient-level tables — so recommendations respect allergens,
+                  macros, and cooking methods at the component level, not just the
+                  dish name. Delivered with a Node/Express API, MySQL, and
+                  Cloudflare edge deployment.
                 </p>
                 <p class="project-outcome">
                   <span class="outcome-label">Outcome</span>
-                  Live voice + text recommendations, built on a Next.js front end
-                  and an Express / MySQL API.
+                  Conversational voice + text ordering that reads ingredient data
+                  the way a nutritionist would, shipped on a serverless AWS and
+                  Cloudflare stack.
                 </p>
                 <ul class="tag-list" aria-label="Technologies">
                   <li>Next.js</li>
                   <li>TypeScript</li>
                   <li>DeepSeek</li>
+                  <li>OpenAI Speech-to-Text</li>
+                  <li>Express</li>
                   <li>MySQL</li>
+                  <li>Cloudflare</li>
+                </ul>
+              </div>
+            </article>
+
+            <article
+              class="project-card"
+              data-categories="ai content"
+              aria-labelledby="project-rag-title"
+            >
+              <div class="project-media" style="background: linear-gradient(135deg, #6d4cc4, #9b7fe0);">
+                <span class="project-index" aria-hidden="true">02</span>
+                <div
+                  aria-hidden="true"
+                  style="position: absolute; left: 50%; top: 52%; z-index: 2; width: 86%; overflow: hidden; transform: translate(-50%, -50%) rotate(-2deg); border: 1px solid rgba(255, 249, 239, 0.35); border-radius: 12px; background: var(--cream); box-shadow: 0 26px 48px rgba(18, 17, 15, 0.42);"
+                >
+                  <span
+                    style="display: flex; align-items: center; gap: 7px; padding: 7px 9px; border-bottom: 1px solid rgba(18, 17, 15, 0.14); background: rgba(255, 249, 239, 0.92); color: rgba(18, 17, 15, 0.6); font-family: var(--font-mono); font-size: 6.5px; letter-spacing: 0.04em; line-height: 1; text-transform: uppercase; white-space: nowrap; overflow: hidden;"
+                  >
+                    <span style="display: inline-flex; gap: 3px; flex: none;">
+                      <i style="display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--orange);"></i>
+                      <i style="display: block; width: 4px; height: 4px; border-radius: 50%; background: #e6b53c;"></i>
+                      <i style="display: block; width: 4px; height: 4px; border-radius: 50%; background: #4f9d5c;"></i>
+                    </span>
+                    <span>RAG lead generation / restaurant reviews</span>
+                  </span>
+                  <img
+                    src="assets/img/work/rag-screenshot.webp"
+                    alt="Lavender browser GUI showing RAG pipeline results for LA restaurant lead generation with complaint, praise, and irrelevant classification plus evidence-grounded pitches"
+                    width="1066"
+                    height="978"
+                    loading="lazy"
+                    decoding="async"
+                    style="display: block; width: 100%; height: auto;"
+                  />
+                </div>
+                <span class="project-open" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-ne"></use></svg></span>
+              </div>
+              <div class="project-body">
+                <p class="project-kicker"><span>2025</span><span>Solo build</span></p>
+                <h3 class="project-title" id="project-rag-title">
+                  <a class="project-link" href="#experience">
+                    RAG Lead Generation for LA Restaurants
+                    <svg class="icon title-arrow" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
+                  </a>
+                </h3>
+                <p class="project-copy">
+                  A RAG-powered pipeline that identifies Los Angeles restaurants
+                  fitting an AI menu consultant. It discovers restaurants through
+                  Google Places, ingests HasData reviews, embeds each review with
+                  Hugging Face's all-MiniLM-L6-v2, stores 384-dimensional vectors
+                  in Pinecone, and regroups matches by restaurant. DeepSeek
+                  classifies candidates as complaint, praise, or irrelevant, then
+                  writes an evidence-grounded pitch only when a genuine pain point
+                  exists. A guardrailed prompt prevents invented leads. Includes a
+                  lavender browser GUI backed by a local Python server loading API
+                  keys from <code>.env</code>.
+                </p>
+                <p class="project-outcome">
+                  <span class="outcome-label">Outcome</span>
+                  Automated lead generation that surfaces real restaurant pain
+                  points with cited evidence — no hallucinated prospects.
+                </p>
+                <ul class="tag-list" aria-label="Technologies">
+                  <li>Python</li>
+                  <li>Google Places API</li>
+                  <li>HasData</li>
+                  <li>Hugging Face</li>
+                  <li>Pinecone</li>
+                  <li>DeepSeek</li>
+                  <li>Vanilla JS</li>
                 </ul>
               </div>
             </article>
@@ -426,7 +505,7 @@
               aria-labelledby="project-sentiment-title"
             >
               <div class="project-media project-media--cobalt">
-                <span class="project-index" aria-hidden="true">02</span>
+                <span class="project-index" aria-hidden="true">03</span>
                 <div class="browser-frame" aria-hidden="true">
                   <span class="browser-bar">
                     <span class="browser-dots"><i></i><i></i><i></i></span>
@@ -487,7 +566,7 @@
               aria-labelledby="project-nielsen-title"
             >
               <div class="project-media project-media--ink">
-                <span class="project-index" aria-hidden="true">03</span>
+                <span class="project-index" aria-hidden="true">04</span>
                 <img
                   class="project-cover"
                   src="assets/img/work/nielsen-art.webp"
@@ -534,7 +613,7 @@
               aria-labelledby="project-teaching-title"
             >
               <div class="project-media project-media--acid">
-                <span class="project-index" aria-hidden="true">04</span>
+                <span class="project-index" aria-hidden="true">05</span>
                 <img
                   class="project-cover"
                   src="assets/img/work/teaching-art.webp"
@@ -582,7 +661,7 @@
               aria-labelledby="project-mysql-title"
             >
               <div class="project-media project-media--video">
-                <span class="project-index" aria-hidden="true">05</span>
+                <span class="project-index" aria-hidden="true">06</span>
                 <img
                   class="project-cover"
                   src="assets/img/work/mysql.webp"
@@ -635,7 +714,7 @@
               aria-labelledby="project-array-title"
             >
               <div class="project-media project-media--video">
-                <span class="project-index" aria-hidden="true">06</span>
+                <span class="project-index" aria-hidden="true">07</span>
                 <img
                   class="project-cover"
                   src="assets/img/work/array.webp"
@@ -688,7 +767,7 @@
               aria-labelledby="project-restapi-title"
             >
               <div class="project-media project-media--video">
-                <span class="project-index" aria-hidden="true">07</span>
+                <span class="project-index" aria-hidden="true">08</span>
                 <img
                   class="project-cover"
                   src="https://i.ytimg.com/vi/CW2UyXKN6rE/maxresdefault.jpg"
@@ -743,7 +822,7 @@
               aria-labelledby="project-pencil-title"
             >
               <div class="project-media project-media--video">
-                <span class="project-index" aria-hidden="true">08</span>
+                <span class="project-index" aria-hidden="true">09</span>
                 <img
                   class="project-cover"
                   src="https://i.ytimg.com/vi/rM03H32axBk/maxresdefault.jpg"
@@ -787,61 +866,6 @@
                   <li>UX design</li>
                   <li>Pencil</li>
                   <li>Wireframing</li>
-                </ul>
-              </div>
-            </article>
-
-            <article
-              class="project-card"
-              data-categories="ai content"
-              aria-labelledby="project-rag-title"
-            >
-              <div class="project-media project-media--ink">
-                <span class="project-index" aria-hidden="true">09</span>
-                <img
-                  class="project-cover"
-                  src="assets/img/work/rag-screenshot.webp"
-                  alt="Lavender browser GUI showing RAG pipeline results for LA restaurant lead generation with complaint/praise classification and evidence-grounded pitches"
-                  width="1200"
-                  height="900"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="project-open" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-ne"></use></svg></span>
-              </div>
-              <div class="project-body">
-                <p class="project-kicker"><span>2025</span><span>Solo build</span></p>
-                <h3 class="project-title" id="project-rag-title">
-                  <a class="project-link" href="#experience">
-                    RAG Lead Generation for LA Restaurants
-                    <svg class="icon title-arrow" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
-                  </a>
-                </h3>
-                <p class="project-copy">
-                  A RAG-powered pipeline that identifies Los Angeles restaurants
-                  fitting an AI menu consultant. It discovers restaurants through
-                  Google Places, ingests HasData reviews, embeds each review with
-                  Hugging Face's all-MiniLM-L6-v2, stores 384-dimensional vectors
-                  in Pinecone, and regroups matches by restaurant. DeepSeek
-                  classifies candidates as complaint, praise, or irrelevant, then
-                  writes an evidence-grounded pitch only when a genuine pain point
-                  exists. A guardrailed prompt prevents invented leads. Includes a
-                  lavender browser GUI backed by a local Python server loading API
-                  keys from <code>.env</code>.
-                </p>
-                <p class="project-outcome">
-                  <span class="outcome-label">Outcome</span>
-                  Automated lead generation that surfaces real restaurant pain
-                  points with cited evidence — no hallucinated prospects.
-                </p>
-                <ul class="tag-list" aria-label="Technologies">
-                  <li>Python</li>
-                  <li>Google Places API</li>
-                  <li>HasData</li>
-                  <li>Hugging Face</li>
-                  <li>Pinecone</li>
-                  <li>DeepSeek</li>
-                  <li>Vanilla JS</li>
                 </ul>
               </div>
             </article>
@@ -1236,14 +1260,26 @@
             </div>
 
             <div class="contact-card">
-              <form class="contact-form" id="contact-form">
+              <form
+                class="contact-form"
+                id="contact-form"
+                action="https://api.web3forms.com/submit"
+                method="POST"
+              >
+                <!-- Web3Forms access key -> alex.gomez.usf@outlook.com
+                     Public by design; it is a form identifier, not a secret.
+                     Manage it at https://app.web3forms.com -->
+                <input type="hidden" name="access_key" value="0e830ee8-ae9f-4d6d-bed4-6a22a5ba281f" />
+                <input type="hidden" name="subject" value="New enquiry from your portfolio" />
+                <input type="hidden" name="from_name" value="alexanderthenotsobad.us" />
+                <!-- Honeypot: bots fill this, humans never see it -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
                 <div class="form-head">
                   <h3>Start a conversation</h3>
-                  <span class="demo-badge">Demo</span>
                 </div>
                 <p class="form-intro">
-                  Tell me what you're working on. This form is a front-end demo —
-                  no data leaves your browser.
+                  Tell me what you're working on. Goes straight to my inbox and I
+                  usually reply within a couple of days.
                 </p>
 
                 <div class="form-row">
@@ -1282,10 +1318,12 @@
                   ></textarea>
                 </div>
 
-                <button class="btn btn--ink btn--full" type="submit">
+                <button class="btn btn--ink btn--full" type="submit" id="contact-submit">
                   Send message <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
                 </button>
-                <p class="form-note">Mock submission. No backend, no tracking.</p>
+                <p class="form-note" id="form-status" role="status" aria-live="polite">
+                  Sends securely. No tracking, no newsletter.
+                </p>
               </form>
 
               <div class="form-success" id="form-success" tabindex="-1" role="status" aria-live="polite" hidden>
@@ -1293,9 +1331,8 @@
                 <p class="eyebrow">Message received</p>
                 <h3>Thanks, <span id="success-name">friend</span>.</h3>
                 <p>
-                  This is a demo, so nothing was sent — but the form interaction
-                  works. In a real build, your note would land in my inbox and I'd
-                  reply within a couple of days.
+                  Your message is on its way to my inbox. I usually reply within a
+                  couple of days.
                 </p>
                 <button class="btn btn--outline" type="button" id="send-another">
                   Send another note <svg class="icon" aria-hidden="true"><use href="#icon-refresh"></use></svg>

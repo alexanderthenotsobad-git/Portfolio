@@ -187,12 +187,40 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * Contact form — front-end demo only
+   * Contact form — posts to Web3Forms (no backend required)
    * ------------------------------------------------------------------ */
   const contactForm = document.getElementById('contact-form');
   const formSuccess = document.getElementById('form-success');
   const successName = document.getElementById('success-name');
   const sendAnother = document.getElementById('send-another');
+  const contactSubmit = document.getElementById('contact-submit');
+  const formStatus = document.getElementById('form-status');
+  const STATUS_DEFAULT = 'Sends securely. No tracking, no newsletter.';
+  const SUBMIT_LABEL = contactSubmit ? contactSubmit.innerHTML : '';
+
+  function setStatus(message, isError) {
+    if (!formStatus) return;
+    formStatus.textContent = message;
+    // Inline styles only for transient states; the base note styling stays intact.
+    if (isError) {
+      formStatus.style.color = '#b3261e';
+      formStatus.style.fontWeight = '700';
+      formStatus.style.textTransform = 'none';
+      formStatus.style.letterSpacing = '0';
+    } else {
+      formStatus.style.color = '';
+      formStatus.style.fontWeight = '';
+      formStatus.style.textTransform = '';
+      formStatus.style.letterSpacing = '';
+    }
+  }
+
+  function setSending(isSending) {
+    if (!contactSubmit) return;
+    contactSubmit.disabled = isSending;
+    contactSubmit.setAttribute('aria-busy', isSending ? 'true' : 'false');
+    contactSubmit.innerHTML = isSending ? 'Sending&hellip;' : SUBMIT_LABEL;
+  }
 
   function showFormSuccess(name) {
     if (!contactForm || !formSuccess) return;
@@ -218,14 +246,74 @@
     contactForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
+      // Always give visible feedback, even when the browser blocks submission.
       if (!contactForm.checkValidity()) {
+        const messageField = contactForm.querySelector('#message');
+        if (messageField && messageField.validity && messageField.validity.tooShort) {
+          setStatus('Your message needs at least 10 characters.', true);
+        } else {
+          setStatus('Please fill in the highlighted fields.', true);
+        }
         contactForm.reportValidity();
         return;
       }
 
       const formData = new FormData(contactForm);
       const name = String(formData.get('name') || '').trim();
-      showFormSuccess(name.split(/\s+/)[0]);
+
+      setSending(true);
+      setStatus('Sending\u2026', false);
+
+      function finish() {
+        setSending(false);
+      }
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      })
+        .then(function (response) {
+          // A non-JSON body (proxy error page, outage) must not throw silently.
+          return response
+            .json()
+            .catch(function () {
+              return {};
+            })
+            .then(function (data) {
+              return { ok: response.ok, status: response.status, data: data || {} };
+            });
+        })
+        .then(function (result) {
+          finish();
+
+          if (result.ok && result.data.success) {
+            showFormSuccess(name.split(/\s+/)[0]);
+            return;
+          }
+
+          let message = result.data.message;
+          if (!message) {
+            message =
+              'Could not send (error ' +
+              result.status +
+              '). Please try again in a moment.';
+          }
+          setStatus(message, true);
+        })
+        .catch(function (error) {
+          finish();
+          setStatus(
+            'Network error \u2014 could not reach the form service. Check your connection and try again.',
+            true
+          );
+          if (window.console && window.console.error) {
+            window.console.error('Contact form submission failed:', error);
+          }
+        });
     });
 
     if (sendAnother) {
